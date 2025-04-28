@@ -8,24 +8,6 @@ A simple and beautifully designed Book Manager application for the MobiusEngine 
 
 Users can **Add**, **Edit**, and **Manage** their favorite books. Data is stored locally on the browser.
 
----
-
-## Live Demo
-
-▶️ [View Deployed App Here](https://your-vercel-link.vercel.app/)
-
----
-
-## Screenshots
-
-### Homepage
-
-![Homepage Screenshot](https://via.placeholder.com/800x400.png?text=Homepage+Screenshot)
-
-_(Replace this image later if you want to upload real screenshots.)_
-
----
-
 ## Features
 
 - Add New Books
@@ -76,11 +58,5 @@ Follow these steps to run locally:
 
 - Shubh Beniwal 
 - Email: beniwal.shubh2003@gmail.com
-
----
-
-## License
-
-This project is licensed under the MIT License.
 
 ---
