@@ -74,9 +74,9 @@ Follow these steps to run locally:
 
 ## Author
 
-- **Your Name**  
-- [LinkedIn Profile](https://linkedin.com/in/yourprofile)  
-- Email: yourname@example.com
+- Shubh Beniwal 
+- [LinkedIn Profile]((https://www.linkedin.com/in/shubh-beniwal/))  
+- Email: beniwal.shubh2003@gmail.com
 
 ---
 
