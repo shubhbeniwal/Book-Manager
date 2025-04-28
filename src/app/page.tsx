@@ -1,95 +1,96 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Book } from "../types/Book";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [books, setBooks] = useState<Book[]>([]);
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
+  const [editId, setEditId] = useState<string | null>(null);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const savedBooks = localStorage.getItem("books");
+    if (savedBooks) {
+      setBooks(JSON.parse(savedBooks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("books", JSON.stringify(books));
+  }, [books]);
+
+  const handleAddOrUpdateBook = () => {
+    if (title.trim() === "" || author.trim() === "" || description.trim() === "") {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (editId) {
+      const updatedBooks = books.map(book =>
+        book.id === editId ? { ...book, title, author, description } : book
+      );
+      setBooks(updatedBooks);
+      setEditId(null);
+    } else {
+      const newBook: Book = {
+        id: uuidv4(),
+        title,
+        author,
+        description,
+      };
+      setBooks([...books, newBook]);
+    }
+    setTitle("");
+    setAuthor("");
+    setDescription("");
+  };
+
+  const handleEdit = (id: string) => {
+    const book = books.find(b => b.id === id);
+    if (book) {
+      setTitle(book.title);
+      setAuthor(book.author);
+      setDescription(book.description);
+      setEditId(id);
+    }
+  };
+
+  return (
+    <main>
+      <h1>Book Manager</h1>
+
+      <form onSubmit={(e) => { e.preventDefault(); handleAddOrUpdateBook(); }}>
+        <input
+          type="text"
+          placeholder="Enter book title"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter author name"
+          value={author}
+          onChange={e => setAuthor(e.target.value)}
+        />
+        <textarea
+          placeholder="Enter description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+          rows={4}
+        />
+        <button type="submit">{editId ? "Update Book" : "Add Book"}</button>
+      </form>
+
+      {books.map(book => (
+        <div key={book.id} className="book-card" onClick={() => handleEdit(book.id)}>
+          <div className="book-title">{book.title}</div>
+          <div className="book-author">by {book.author}</div>
+          <div className="book-description">{book.description}</div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      ))}
+    </main>
   );
 }

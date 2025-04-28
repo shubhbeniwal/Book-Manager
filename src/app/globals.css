@@ -1,42 +1,128 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+/* Reset default margins */
+body, h1, h2, h3, p, input, textarea, button, div {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Background and fonts */
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #f6f9fc, #e9eff5);
+  color: #2c3e50;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Center the whole main area */
+main {
+  width: 100%;
+  max-width: 800px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading style */
+h1 {
+  font-size: 3rem;
+  color: #1e3a8a;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Form card */
+form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+
+/* Input and textarea fields */
+input, textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f8fafc;
+  transition: all 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #1e3a8a;
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  transform: translateY(-2px);
+}
+
+/* Book Card style */
+.book-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+  margin-bottom: 25px;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Book title style */
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+/* Book author style */
+.book-author {
+  font-style: italic;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+/* Book description style */
+.book-description {
+  font-size: 16px;
+  color: #64748b;
+}
+
+/* Simple fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
