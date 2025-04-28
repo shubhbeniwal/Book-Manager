@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Book Manager App
 
-## Getting Started
+![Deployment Status](https://img.shields.io/badge/deployment-success-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Made With](https://img.shields.io/badge/Made%20with-Next.js%20%7C%20TypeScript-blue)
 
-First, run the development server:
+A simple and beautifully designed Book Manager application for the MobiusEngine Frontend Developer Internship Assignment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Users can **Add**, **Edit**, and **Manage** their favorite books. Data is stored locally on the browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+▶️ [View Deployed App Here](https://your-vercel-link.vercel.app/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Homepage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Homepage Screenshot](https://via.placeholder.com/800x400.png?text=Homepage+Screenshot)
 
-## Deploy on Vercel
+_(Replace this image later if you want to upload real screenshots.)_
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- Add New Books
+- Edit Existing Books
+- Data Stored in Browser (LocalStorage)
+- Beautiful and Responsive User Interface
+- Easy to Use
+
+---
+
+## Built With
+
+- [Next.js](https://nextjs.org/) — Framework
+- [TypeScript](https://www.typescriptlang.org/) — Language
+- [Vercel](https://vercel.com/) — Deployment
+
+---
+
+## Getting Started (For Developers)
+
+Follow these steps to run locally:
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/mobius-assignment.git
+    ```
+
+2. Move to project directory:
+    ```bash
+    cd mobius-assignment
+    ```
+
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4. Run development server:
+    ```bash
+    npm run dev
+    ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Author
+
+- **Your Name**  
+- [LinkedIn Profile](https://linkedin.com/in/yourprofile)  
+- Email: yourname@example.com
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
