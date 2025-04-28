@@ -75,7 +75,6 @@ Follow these steps to run locally:
 ## Author
 
 - Shubh Beniwal 
-- [LinkedIn Profile]((https://www.linkedin.com/in/shubh-beniwal/))  
 - Email: beniwal.shubh2003@gmail.com
 
 ---
